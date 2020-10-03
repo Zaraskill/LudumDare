@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
         {
             orientTarget = orientDir;
         }
+
         float angle = Vector2.SignedAngle(Vector2.right, orientTarget);
         Vector3 eulerAngles = target.transform.eulerAngles;
         eulerAngles.z = angle;
@@ -121,5 +122,16 @@ public class PlayerController : MonoBehaviour
         dashDir = orientTarget;
         dashCountdown = dashDuration;
         isDashing = true;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            if (Mathf.Sign(speed.x) == Mathf.Sign(collision.GetContact(0).point.x - transform.position.x))
+            {
+                speed.x = 0;
+            }
+        }
     }
 }
