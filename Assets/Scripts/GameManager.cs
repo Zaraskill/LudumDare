@@ -6,8 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [Header("Dash")]
     public float dashTime;
     [SerializeField] private float _dashTimeLeft;
+
+    [Header("SpawnPoint")]
+    public PlayerController player;
+    private Transform _playerSpawnpoint;
+
     private void Awake()
     {
         if (instance == null)
@@ -29,6 +35,10 @@ public class GameManager : MonoBehaviour
     public void Init()
     {
         _dashTimeLeft = dashTime;
+
+        /* Spawn du joueur
+        _playerSpawnpoint = GameObject.FindGameObjectWithTag("Spawnpoint").transform;
+        Instantiate(player, _playerSpawnpoint.position, Quaternion.identity); */
     }
 
     // Update is called once per frame

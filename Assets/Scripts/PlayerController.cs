@@ -134,4 +134,14 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("DeadZone"))
+        {
+            // Mort du personnage
+            // SFX, VFX, Particules, etc...
+            Destroy(this.gameObject);
+        }
+    }
 }
