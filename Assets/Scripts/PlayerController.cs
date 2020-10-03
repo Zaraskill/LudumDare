@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 dashDir;
     private bool isDashing = false;
 
+    [Header("Target")]
+    public GameObject target;
+    private Vector2 orientTarget;
+
     private Rigidbody _rigidbody;
 
 
@@ -44,6 +48,11 @@ public class PlayerController : MonoBehaviour
             float dirX = player.GetAxis("HorizontalMove");
             Vector2 move = new Vector2(dirX, 0);
             Move(move);
+
+            float moveX = player.GetAxis("HorizontalTarget");
+            float moveY = player.GetAxis("VerticalTarget");
+            Vector2 moveTarget = new Vector2(moveX, moveY);
+            UpdateTarget(moveTarget);
         }        
     }
 
@@ -72,6 +81,20 @@ public class PlayerController : MonoBehaviour
         }
 
         _rigidbody.velocity = new Vector3(speed.x, speed.y, 0);
+    }
+
+    private void UpdateTarget(Vector2 orientDir)
+    {
+        if (orientDir != Vector2.zero)
+        {
+            orientTarget = orientDir;
+        }
+        float angle = Vector2.SignedAngle(Vector2.right, orientTarget);
+        Vector3 eulerAngles = target.transform.eulerAngles;
+        eulerAngles.z = angle;
+        target.transform.eulerAngles = eulerAngles;
+
+        //calcul du vecteur d'orienta
 
     }
 
@@ -93,9 +116,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Dash(Vector2 orientDir)
+    public void Dash()
     {
-        dashDir = orientDir;
+        dashDir = orientTarget;
         dashCountdown = dashDuration;
         isDashing = true;
     }
