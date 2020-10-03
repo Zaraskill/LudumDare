@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
 
         if (_dashTimeLeft <= 0)
         {
+            FindObjectOfType<PlayerController>().Dash(Vector2.right);
             Debug.Log("Le J c'est le S");
             return true;
         }
