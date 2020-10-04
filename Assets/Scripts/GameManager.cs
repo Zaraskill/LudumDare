@@ -37,9 +37,8 @@ public class GameManager : MonoBehaviour
     {
         _dashTimeLeft = dashTime;
 
-        /* Spawn du joueur
         _playerSpawnpoint = GameObject.FindGameObjectWithTag("Spawnpoint").transform;
-        Instantiate(player, _playerSpawnpoint.position, Quaternion.identity); */
+        Instantiate(player, _playerSpawnpoint.position, Quaternion.identity);
     }
 
     // Update is called once per frame
