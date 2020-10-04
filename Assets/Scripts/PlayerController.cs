@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     public GameObject target;
     private Vector2 orientTarget = Vector2.right;
 
-
     public bool isDebugMode;
     private Rigidbody _rigidbody;
 
@@ -55,6 +54,17 @@ public class PlayerController : MonoBehaviour
             float moveY = player.GetAxis("VerticalTarget");
             Vector2 moveTarget = new Vector2(moveX, moveY);
             UpdateTarget(moveTarget);
+
+            if (dirX < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                target.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (dirX > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                target.transform.localScale = new Vector3(1, 1, 1);
+            }
         }        
     }
 
