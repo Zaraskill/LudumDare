@@ -57,6 +57,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(WaitAnimChangeLevel());
     }
 
+    public void Respawn()
+    {
+        FindObjectOfType<PlayerController>().transform.position = _playerSpawnpoint.position;
+    }
+
     private bool DashTimer()
     {
         _dashTimeLeft -= Time.deltaTime;
