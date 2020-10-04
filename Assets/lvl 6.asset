@@ -1311,34 +1311,6 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
---- !u!114 &-5492845391330062669
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  focusDistance:
-    overrideState: 1
-    value: 12.32
-  aperture:
-    overrideState: 1
-    value: 0.1
-  focalLength:
-    overrideState: 1
-    value: 22
-  kernelSize:
-    overrideState: 0
-    value: 1
 --- !u!114 &-2691333259305649269
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1360,7 +1332,7 @@ MonoBehaviour:
     value: 0
   intensity:
     overrideState: 1
-    value: 1.99
+    value: 0.65
   color:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -1398,13 +1370,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: New Post-processing Profile
+  m_Name: lvl 6
   m_EditorClassIdentifier: 
   settings:
   - {fileID: -2691333259305649269}
   - {fileID: 6320614715633737140}
   - {fileID: -5594978404963430069}
-  - {fileID: -5492845391330062669}
   - {fileID: 8469321803063713282}
   - {fileID: 781539516757406381}
   - {fileID: 590764676894783105}
