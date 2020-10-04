@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - DeadZone
+  - Spawnpoint
   layers:
   - Default
   - TransparentFX
