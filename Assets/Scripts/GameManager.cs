@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -50,6 +51,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void FinishLevel()
+    {
+        //Anim de fin à lancer?
+        _dashTimeLeft = 1000000000;
+        StartCoroutine(WaitAnimChangeLevel());
+    }
+
     private bool DashTimer()
     {
         _dashTimeLeft -= Time.deltaTime;
@@ -67,5 +75,19 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("J'sors le RS");
         _dashTimeLeft = dashTime;
+    }
+
+    IEnumerator WaitAnimChangeLevel()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Init();            
+        }
+        else
+        {
+            //Finis le jeu
+        }
     }
 }
