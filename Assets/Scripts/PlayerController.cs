@@ -24,8 +24,10 @@ public class PlayerController : MonoBehaviour
 
     [Header("Target")]
     public GameObject target;
-    private Vector2 orientTarget;
+    private Vector2 orientTarget = Vector2.right;
 
+
+    public bool isDebugMode;
     private Rigidbody _rigidbody;
 
 
@@ -54,6 +56,18 @@ public class PlayerController : MonoBehaviour
             Vector2 moveTarget = new Vector2(moveX, moveY);
             UpdateTarget(moveTarget);
         }        
+    }
+
+    private void OnGUI()
+    {
+        if (!isDebugMode)
+        {
+            return;
+        }
+
+        GUILayout.BeginVertical();
+        GUILayout.Label("" + orientTarget);
+        GUILayout.Label("" + orientTarget.normalized);
     }
 
     private void Move(Vector2 moveDir)
@@ -119,7 +133,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dash()
     {
-        dashDir = orientTarget;
+        dashDir = orientTarget.normalized;
         dashCountdown = dashDuration;
         isDashing = true;
     }
