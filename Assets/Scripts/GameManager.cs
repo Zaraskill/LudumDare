@@ -37,9 +37,8 @@ public class GameManager : MonoBehaviour
     {
         _dashTimeLeft = dashTime;
 
-        /* Spawn du joueur
         _playerSpawnpoint = GameObject.FindGameObjectWithTag("Spawnpoint").transform;
-        Instantiate(player, _playerSpawnpoint.position, Quaternion.identity); */
+        Instantiate(player, _playerSpawnpoint.position, Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -56,6 +55,11 @@ public class GameManager : MonoBehaviour
         //Anim de fin à lancer?
         _dashTimeLeft = 1000000000;
         StartCoroutine(WaitAnimChangeLevel());
+    }
+
+    public void Respawn()
+    {
+        FindObjectOfType<PlayerController>().transform.position = _playerSpawnpoint.position;
     }
 
     private bool DashTimer()

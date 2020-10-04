@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
         {
             // Mort du personnage
             // SFX, VFX, Particules, etc...
-            gameObject.transform.position = GameManager.instance.startPosition.transform.position;
+            GameManager.instance.Respawn();
         }
         else if (other.gameObject.CompareTag("Finish"))
         {
