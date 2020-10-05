@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject Jauge2;
     public GameObject Jauge3;
 
+    private bool isPaused;
+    public GameObject canvasPause;
 
     [Header("End Level")]
     public GameObject displayEndlevel;
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour
         PlayerController play = Instantiate(player);
         play.transform.position = _playerSpawnpoint.position;
         AudioManager.audioManager.Play("enter");
+        canvasPause = GameObject.FindGameObjectWithTag("Pause");
     }
 
     // Update is called once per frame
@@ -72,7 +75,21 @@ public class GameManager : MonoBehaviour
                     Destroy(AudioManager.audioManager.gameObject);
                 }
             }
-        }        
+        }
+        if (play.GetButtonDown("Pause"))
+        {
+            isPaused = !isPaused;
+            if (isPaused)
+            {
+                canvasPause.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                canvasPause.SetActive(false);
+                Time.timeScale = 1;
+            }
+        }
     }
 
     public void FinishLevel()
