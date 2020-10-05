@@ -791,6 +791,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94020e9b647778f49b318767786fb1cf, type: 3}
+--- !u!1 &624028882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7521517416827044742, guid: 94020e9b647778f49b318767786fb1cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 624028881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &679660657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f06ea26f46923094596e2f7c77ec1331,
@@ -2389,6 +2395,11 @@ PrefabInstance:
       propertyPath: Jauge3
       value: 
       objectReference: {fileID: 1447509404}
+    - target: {fileID: 5700654200991296733, guid: b2ff77eca08fab54fb67ec3c2c155f89,
+        type: 3}
+      propertyPath: canvasPause
+      value: 
+      objectReference: {fileID: 624028882}
     - target: {fileID: 5700654200991296734, guid: b2ff77eca08fab54fb67ec3c2c155f89,
         type: 3}
       propertyPath: m_LocalPosition.x
