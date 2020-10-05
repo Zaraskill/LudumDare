@@ -594,6 +594,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 5700654200991296733, guid: b2ff77eca08fab54fb67ec3c2c155f89,
+        type: 3}
+      propertyPath: Jauge1
+      value: 
+      objectReference: {fileID: 1990951339}
+    - target: {fileID: 5700654200991296733, guid: b2ff77eca08fab54fb67ec3c2c155f89,
+        type: 3}
+      propertyPath: Jauge2
+      value: 
+      objectReference: {fileID: 1990951338}
+    - target: {fileID: 5700654200991296733, guid: b2ff77eca08fab54fb67ec3c2c155f89,
+        type: 3}
+      propertyPath: Jauge3
+      value: 
+      objectReference: {fileID: 1990951337}
     - target: {fileID: 5700654200991296734, guid: b2ff77eca08fab54fb67ec3c2c155f89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4248,6 +4263,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ede7a72017e925f4282c11ae1fe98e65, type: 3}
+--- !u!1 &1990951337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 468101879821686360, guid: ede7a72017e925f4282c11ae1fe98e65,
+    type: 3}
+  m_PrefabInstance: {fileID: 1990951336}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1990951338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 468101877933408529, guid: ede7a72017e925f4282c11ae1fe98e65,
+    type: 3}
+  m_PrefabInstance: {fileID: 1990951336}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1990951339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 468101879398698531, guid: ede7a72017e925f4282c11ae1fe98e65,
+    type: 3}
+  m_PrefabInstance: {fileID: 1990951336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2070100333
 GameObject:
   m_ObjectHideFlags: 0
