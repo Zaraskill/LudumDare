@@ -60,14 +60,14 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: enter
     clip: {fileID: 8300000, guid: a4f6825fe9131ba49aba44e06e6cb8e6, type: 3}
-    volume: 0
+    volume: 1
     pitch: 1
     loop: 0
     isMusic: 0
     source: {fileID: 0}
   - name: ending
     clip: {fileID: 8300000, guid: 772ad8281763ed44eae3875a9936d189, type: 3}
-    volume: 0
+    volume: 1
     pitch: 1
     loop: 0
     isMusic: 0

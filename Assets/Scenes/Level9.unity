@@ -4981,6 +4981,12 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4780861048323362081, guid: d4f3a87b13f3d2d4bb9690769e98877a, type: 3}
+--- !u!1 &1440222249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3451430593586832945, guid: ede7a72017e925f4282c11ae1fe98e65,
+    type: 3}
+  m_PrefabInstance: {fileID: 1962996856}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1449485251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5428,6 +5434,11 @@ PrefabInstance:
       propertyPath: Jauge3
       value: 
       objectReference: {fileID: 1962996857}
+    - target: {fileID: 5700654200991296733, guid: b2ff77eca08fab54fb67ec3c2c155f89,
+        type: 3}
+      propertyPath: displayEndlevel
+      value: 
+      objectReference: {fileID: 1440222249}
     - target: {fileID: 5700654200991296734, guid: b2ff77eca08fab54fb67ec3c2c155f89,
         type: 3}
       propertyPath: m_LocalPosition.x

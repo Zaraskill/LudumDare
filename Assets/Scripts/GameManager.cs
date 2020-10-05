@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Rewired;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class GameManager : MonoBehaviour
     public GameObject Jauge2;
     public GameObject Jauge3;
 
+
+    [Header("End Level")]
+    public GameObject displayEndlevel;
+    private Player play;
+
     private void Awake()
     {
         if (instance == null)
@@ -35,6 +41,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        play = ReInput.players.GetPlayer(0);
         Init();
     }
 
@@ -45,6 +52,7 @@ public class GameManager : MonoBehaviour
         _playerSpawnpoint = GameObject.FindGameObjectWithTag("Spawnpoint").transform;
         PlayerController play = Instantiate(player);
         play.transform.position = _playerSpawnpoint.position;
+        AudioManager.audioManager.Play("enter");
     }
 
     // Update is called once per frame
@@ -54,12 +62,20 @@ public class GameManager : MonoBehaviour
         {
             ResetDashTimer();
         }
+        if (displayEndlevel.activeInHierarchy)
+        {
+            if (play.GetButtonDown("Validate"))
+            {
+                SceneManager.LoadScene(0);
+                Destroy(AudioManager.audioManager.gameObject);
+            }                
+        }
     }
 
     public void FinishLevel()
     {
         //Anim de fin à lancer?
-        _dashTimeLeft = 1000000000;
+        _dashTimeLeft = 10000000000000;
         if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 1)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -67,7 +83,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //Finis le jeu
+            displayEndlevel.SetActive(true);
         }
     }
 
