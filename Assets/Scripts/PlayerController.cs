@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isDebugMode;
     private Rigidbody _rigidbody;
+    private Animator _animator;
 
 
     // Start is called before the first frame update
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         player = ReInput.players.GetPlayer(idPlayer);
         _rigidbody = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour
             float moveY = player.GetAxis("VerticalTarget");
             Vector2 moveTarget = new Vector2(moveX, moveY);
             UpdateTarget(moveTarget);
+            _animator.SetFloat("Walk", Mathf.Abs(dirX));
 
             if (dirX < 0)
             {
@@ -142,6 +145,7 @@ public class PlayerController : MonoBehaviour
         dashCountdown -= Time.deltaTime;
         if(dashCountdown <= 0)
         {
+            _animator.SetBool("Dash", false);
             isDashing = false;
         }
         else
@@ -156,6 +160,7 @@ public class PlayerController : MonoBehaviour
         dashCountdown = dashDuration;
         isDashing = true;
         AudioManager.audioManager.Play("dash");
+        _animator.SetBool("Dash", true);
     }
 
     private void OnCollisionStay(Collision collision)
