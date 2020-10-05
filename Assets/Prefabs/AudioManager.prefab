@@ -43,14 +43,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36bbd780755f47647986d5147282f22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: footstep
+    clip: {fileID: 8300000, guid: 8b9564e6ad0595342b1ccea92debf2b3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: dash
+    clip: {fileID: 8300000, guid: 6ffbd0e49f036cf479f15da6526db691, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: enter
+    clip: {fileID: 8300000, guid: a4f6825fe9131ba49aba44e06e6cb8e6, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: ending
+    clip: {fileID: 8300000, guid: 772ad8281763ed44eae3875a9936d189, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: music
+    clip: {fileID: 8300000, guid: 47f454d0d3a4c344784888fdbf706403, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    isMusic: 1
+    source: {fileID: 0}
   currentMusic: 
   Mixer: {fileID: 24100000, guid: e2e5f87b73fd5214188eee7dfb4af47f, type: 2}
   MusicMixer: {fileID: 1588378475502028137, guid: e2e5f87b73fd5214188eee7dfb4af47f,
     type: 2}
   SoundMixer: {fileID: -6901000444396889894, guid: e2e5f87b73fd5214188eee7dfb4af47f,
     type: 2}
-  musicVolume: 0
-  soundVolume: 0
+  musicVolume: 20
+  soundVolume: 10
   minPitch: 0
   maxPitch: 0

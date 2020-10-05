@@ -42,13 +42,17 @@ public class AudioManager : MonoBehaviour
             if (s.isMusic)
                 s.source.outputAudioMixerGroup = MusicMixer;
             else
+            {
                 s.source.outputAudioMixerGroup = SoundMixer;
-
+                s.source.playOnAwake = false;
+            }             
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
+
+        PlayMusic("music");
     }
 
     public void Play(string name)
@@ -81,5 +85,14 @@ public class AudioManager : MonoBehaviour
         if (s == null)
             return;
         s.source.Stop();
+    }
+
+    public bool IsPlaying(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s.source.isPlaying)
+            return true;
+        else
+            return false;
     }
 }

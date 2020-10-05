@@ -89,6 +89,8 @@ public class PlayerController : MonoBehaviour
             {
                 speed = speed.normalized * speedMax;
             }
+            if(!AudioManager.audioManager.IsPlaying("footstep"))
+                AudioManager.audioManager.Play("footstep");
         }
         else if (speed != Vector2.zero)
         {
@@ -146,6 +148,7 @@ public class PlayerController : MonoBehaviour
         dashDir = orientTarget.normalized;
         dashCountdown = dashDuration;
         isDashing = true;
+        AudioManager.audioManager.Play("dash");
     }
 
     private void OnCollisionStay(Collision collision)
@@ -159,16 +162,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(other.gameObject.CompareTag("DeadZone"))
+        if (collision.gameObject.CompareTag("DeadZone"))
         {
             // Mort du personnage
             // SFX, VFX, Particules, etc...
             GameManager.instance.Respawn();
         }
-        else if (other.gameObject.CompareTag("Finish"))
+    }
+    private void OnTriggerEnter(Collider other)
+    {        
+        if (other.gameObject.CompareTag("Finish"))
         {
+            AudioManager.audioManager.Play("ending");
             GameManager.instance.FinishLevel();
         }
     }
