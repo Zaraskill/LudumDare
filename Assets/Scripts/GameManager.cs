@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public GameObject displayEndlevel;
     private Player play;
 
+    public GameObject deathVFX;
+
     private void Awake()
     {
         if (instance == null)
@@ -110,6 +112,7 @@ public class GameManager : MonoBehaviour
     public void Respawn()
     {
         _dashTimeLeft = dashTime;
+        Instantiate(deathVFX, FindObjectOfType<PlayerController>().transform.position, Quaternion.identity);
         FindObjectOfType<PlayerController>().transform.position = _playerSpawnpoint.position;
     }
 

@@ -46,3 +46,8 @@ MonoBehaviour:
   dashTime: 3
   _dashTimeLeft: 0
   player: {fileID: 2366583396337639342, guid: dbaff1a945e7fe84882d2570f08e6e3a, type: 3}
+  Jauge1: {fileID: 0}
+  Jauge2: {fileID: 0}
+  Jauge3: {fileID: 0}
+  displayEndlevel: {fileID: 0}
+  deathVFX: {fileID: 119968, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
