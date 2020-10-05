@@ -60,7 +60,15 @@ public class GameManager : MonoBehaviour
     {
         //Anim de fin à lancer?
         _dashTimeLeft = 1000000000;
-        StartCoroutine(WaitAnimChangeLevel());
+        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Init();
+        }
+        else
+        {
+            //Finis le jeu
+        }
     }
 
     public void Respawn()
@@ -103,19 +111,5 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("J'sors le RS");
         _dashTimeLeft = dashTime;
-    }
-
-    IEnumerator WaitAnimChangeLevel()
-    {
-        yield return new WaitForSecondsRealtime(2f);
-        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 1)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            Init();            
-        }
-        else
-        {
-            //Finis le jeu
-        }
     }
 }
