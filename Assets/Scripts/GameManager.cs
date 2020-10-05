@@ -62,14 +62,17 @@ public class GameManager : MonoBehaviour
         {
             ResetDashTimer();
         }
-        if (displayEndlevel.activeInHierarchy)
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
         {
-            if (play.GetButtonDown("Validate"))
+            if (displayEndlevel.activeInHierarchy)
             {
-                SceneManager.LoadScene(0);
-                Destroy(AudioManager.audioManager.gameObject);
-            }                
-        }
+                if (play.GetButtonDown("Validate"))
+                {
+                    SceneManager.LoadScene(0);
+                    Destroy(AudioManager.audioManager.gameObject);
+                }
+            }
+        }        
     }
 
     public void FinishLevel()
@@ -89,6 +92,7 @@ public class GameManager : MonoBehaviour
 
     public void Respawn()
     {
+        _dashTimeLeft = dashTime;
         FindObjectOfType<PlayerController>().transform.position = _playerSpawnpoint.position;
     }
 

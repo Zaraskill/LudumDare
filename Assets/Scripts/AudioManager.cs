@@ -15,14 +15,6 @@ public class AudioManager : MonoBehaviour
     public AudioMixerGroup MusicMixer;
     public AudioMixerGroup SoundMixer;
 
-    [Header("Volume")]
-    public float musicVolume;
-    public float soundVolume;
-
-    [Header("Pitch Range")]
-    public float minPitch;
-    public float maxPitch;
-
     void Awake()
     {
         if (audioManager == null)
