@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float acceleration;
     public float friction;
     private Vector2 speed = Vector2.zero;
+    private Vector2 collisionSide;
 
     [Header("Dash")]
     public float dashDuration = 1f;
@@ -106,6 +107,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+
+        if (Mathf.Sign(speed.x) == Mathf.Sign(collisionSide.x) && collisionSide.x != 0)
+        {
+            speed.x = 0;
+        }
+
         _rigidbody.velocity = new Vector3(speed.x, speed.y, 0);
     }
 
@@ -157,8 +164,25 @@ public class PlayerController : MonoBehaviour
         {
             if (Mathf.Sign(speed.x) == Mathf.Sign(collision.GetContact(0).point.x - transform.position.x))
             {
+                if(Mathf.Sign(speed.x) > 0)
+                {
+                    collisionSide = Vector2.right;
+                }
+                else
+                {
+                    collisionSide = Vector2.left;
+                }
                 speed.x = 0;
+                _rigidbody.velocity = new Vector3(0, speed.y, 0);
             }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            collisionSide = Vector2.zero;
         }
     }
 
@@ -169,6 +193,22 @@ public class PlayerController : MonoBehaviour
             // Mort du personnage
             // SFX, VFX, Particules, etc...
             GameManager.instance.Respawn();
+        }
+        if (collision.gameObject.tag == "Wall")
+        {
+            if (Mathf.Sign(speed.x) == Mathf.Sign(collision.GetContact(0).point.x - transform.position.x))
+            {
+                if (Mathf.Sign(speed.x) > 0)
+                {
+                    collisionSide = Vector2.right;
+                }
+                else
+                {
+                    collisionSide = Vector2.left;
+                }
+                speed.x = 0;
+                _rigidbody.velocity = new Vector3(speed.x, speed.y, 0);
+            }
         }
     }
     private void OnTriggerEnter(Collider other)
