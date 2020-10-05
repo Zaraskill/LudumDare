@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     public PlayerController player;
     private Transform _playerSpawnpoint;
 
+    [Header("UI Jauge de Dash")]
+    public GameObject Jauge1;
+    public GameObject Jauge2;
+    public GameObject Jauge3;
+
     private void Awake()
     {
         if (instance == null)
@@ -72,6 +77,24 @@ public class GameManager : MonoBehaviour
             FindObjectOfType<PlayerController>().Dash();
             Debug.Log("Le J c'est le S");
             return true;
+        }
+        else if(_dashTimeLeft <= 3 && _dashTimeLeft > 2)
+        {
+            Jauge1.SetActive(true);
+            Jauge2.SetActive(false);
+            Jauge3.SetActive(false);
+        }
+        else if (_dashTimeLeft <= 2 && _dashTimeLeft > 1)
+        {
+            Jauge1.SetActive(false);
+            Jauge2.SetActive(true);
+            Jauge3.SetActive(false);
+        }
+        else if (_dashTimeLeft <= 1 && _dashTimeLeft > 0)
+        {
+            Jauge1.SetActive(false);
+            Jauge2.SetActive(false);
+            Jauge3.SetActive(true);
         }
         return false;
     }
