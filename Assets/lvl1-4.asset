@@ -61,8 +61,8 @@ MonoBehaviour:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
-    overrideState: 1
-    value: 34
+    overrideState: 0
+    value: 4
   saturation:
     overrideState: 1
     value: 32
